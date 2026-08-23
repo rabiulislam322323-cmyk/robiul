@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Robiul Islam | Project Engineer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        /* Navigation */
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background: #111827;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 120px 10% 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: linear-gradient(135deg, #eaf6ff, #ffffff);
+        }
+
+        .hero-text {
+            width: 55%;
+        }
+
+        .hero-text h3 {
+            color: #0284c7;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .hero-text h1 span {
+            color: #0284c7;
+        }
+
+        .hero-text h2 {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #64748b;
+            max-width: 600px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-right: 10px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #0369a1;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #0284c7;
+            color: #0284c7;
+        }
+
+        .btn-outline:hover {
+            background: #0284c7;
+            color: white;
+        }
+
+        /* Profile Image */
+        .hero-image {
+            width: 380px;
+            height: 480px;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 8px solid white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #111827;
+        }
+
+        .section-title p {
+            color: #64748b;
+            margin-top: 10px;
+        }
+
+        /* About */
+        .about-container {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #0284c7;
+        }
+
+        .about-text p {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* Skills */
+        .skills {
+            background: #111827;
+        }
+
+        .skills .section-title h2,
+        .skills .section-title p {
+            color: white;
+        }
+
+        .skill-boxes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #1e293b;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            background: #0284c7;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+        }
+
+        /* Services */
+        .service-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .service-card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: #0284c7;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Contact */
+        .contact {
+            background: #eaf6ff;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            font-size: 26px;
+            color: #0284c7;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 15px 0;
+            font-size: 17px;
+            color: #475569;
+        }
+
+        .contact-info a {
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Mobile Responsive */
+        @media(max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .hero-image {
+                width: 300px;
+                height: 380px;
+            }
+
+            .skill-boxes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-boxes {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+
+        @media(max-width: 500px) {
+            .skill-boxes {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 34px;
+            }
+
+            section {
+                padding: 60px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Robiul<span>Islam</span></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <h3>Hello, I'm</h3>
+            <h1>Robiul <span>Islam</span></h1>
+            <h2>Professional Project Engineer</h2>
+
+            <p>
+                I am a passionate Project Engineer dedicated to planning,
+                managing and delivering successful projects with quality,
+                efficiency and professional excellence.
+            </p>
+
+            <div class="buttons">
+                <a href="#contact" class="btn">Contact Me</a>
+                <a href="#about" class="btn btn-outline">About Me</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="robiul islam pic.jpeg" alt="Robiul Islam">
+        </div>
+
+    </section>
+
+    <!-- About -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Professional Background & Career</p>
+        </div>
+
+        <div class="about-container">
+            <div class="about-text">
+                <h3>Project Engineer</h3>
+                <p>
+                    I am Robiul Islam, a motivated and professional Project
+                    Engineer. I enjoy solving engineering challenges and
+                    working with teams to complete projects successfully.
+                </p>
+
+                <p>
+                    My goal is to build a successful professional career by
+                    using technical knowledge, project management skills and
+                    continuous learning.
+                </p>
+
+                <a href="#contact" class="btn">Hire / Contact Me</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Skills -->
+    <section class="skills" id="skills">
+
+        <div class="section-title">
+            <h2>My Skills</h2>
+            <p>Professional Skills & Expertise</p>
+        </div>
+
+        <div class="skill-boxes">
+
+            <div class="skill-card">
+                <h3>Project Management</h3>
+                <p>Planning & Execution</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Engineering</h3>
+                <p>Technical Problem Solving</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Team Work</h3>
+                <p>Professional Collaboration</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Communication</h3>
+                <p>Clear & Effective Communication</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+
+        <div class="section-title">
+            <h2>What I Do</h2>
+            <p>My Professional Services</p>
+        </div>
+
+        <div class="service-boxes">
+
+            <div class="service-card">
+                <div class="icon">🏗️</div>
+                <h3>Project Planning</h3>
+                <p>
+                    Professional planning and organization to ensure successful
+                    project execution.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">⚙️</div>
+                <h3>Engineering Support</h3>
+                <p>
+                    Technical support and engineering solutions for different
+                    project requirements.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">📊</div>
+                <h3>Project Coordination</h3>
+                <p>
+                    Coordinating tasks, teams and resources for efficient
+                    project delivery.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <div class="section-title">
+            <h2>Contact Me</h2>
+            <p>Let's Work Together</p>
+        </div>
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+                <h3>Robiul Islam</h3>
+                <p><strong>Job:</strong> Project Engineer</p>
+
+                <p>
+                    📞 Phone:
+                    <a href="tel:01608910261">01608910261</a>
+                </p>
+
+                <p>
+                    📧 Email:
+                    <a href="mailto:robiulislam322323@gmail.com">
+                        robiulislam322323@gmail.com
+                    </a>
+                </p>
+
+                <br>
+
+                <a href="mailto:robiulislam322323@gmail.com" class="btn">
+                    Send Email
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Robiul Islam | Professional Portfolio | Project Engineer</p>
+    </footer>
+
+
+    <script>
+        // Welcome Message
+        console.log("Welcome to Robiul Islam Professional Portfolio");
+
+        // Navigation active effect
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll("nav ul li a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = "white";
+
+                if (link.getAttribute("href") === "#" + current) {
+                    link.style.color = "#38bdf8";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
